@@ -1,7 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,15 +38,20 @@ public class FrameAdaugareUtilizatorAdministrator extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameAdaugareUtilizatorAdministrator() {
-		setTitle("Adauga utilizator");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameAdaugareUtilizatorAdministrator.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Adaug\u0103 utilizator");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JButton btnAdaugareMembru = new JButton("Adaugare membru");
+		JButton btnAdaugareMembru = new JButton("Ad\u0103ugare membru");
+		btnAdaugareMembru.setBounds(5, 5, 424, 61);
 		btnAdaugareMembru.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameAdaugareMembruSauAdministrator frame = new FrameAdaugareMembruSauAdministrator(
@@ -54,9 +59,11 @@ public class FrameAdaugareUtilizatorAdministrator extends JFrame {
 				frame.setVisible(true);
 			}
 		});
+		contentPane.setLayout(null);
 		contentPane.add(btnAdaugareMembru);
 
-		JButton btnNewButton = new JButton("Adaugare administrator");
+		JButton btnNewButton = new JButton("Ad\u0103ugare administrator");
+		btnNewButton.setBounds(5, 194, 424, 61);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameAdaugareMembruSauAdministrator frame = new FrameAdaugareMembruSauAdministrator(

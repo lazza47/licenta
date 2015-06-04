@@ -1,9 +1,13 @@
 package com.lazarescu.licenta;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,8 +52,14 @@ public class FrameLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameLogin() {
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameLogin.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setResizable(false);
 
-		setTitle("Biblioteca");
+		setTitle("Log in");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,12 +67,13 @@ public class FrameLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblBiblioteca = new JLabel(
-				"Bine ati venit ! \r\n\r\nBiblioteca V1.0\r\n");
+		JLabel lblBiblioteca = new JLabel("Bine aţi venit !\r\n\r\n\r\n");
+		lblBiblioteca.setFont(new Font("Times New Roman", Font.PLAIN, 14));
+		lblBiblioteca.setForeground(Color.WHITE);
 		lblBiblioteca.setLabelFor(contentPane);
 		lblBiblioteca.setToolTipText("");
 		lblBiblioteca.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBiblioteca.setBounds(66, 11, 286, 118);
+		lblBiblioteca.setBounds(64, 0, 286, 60);
 		contentPane.add(lblBiblioteca);
 
 		btnLogin = new JButton("Login");
@@ -80,7 +91,6 @@ public class FrameLogin extends JFrame {
 						&& !Validator.stringulEsteGol(password);
 				if (!inputValid) {
 					InterfataUtilizator.showMessage(" ! camp GOL");
-					// login(username,password);
 				} else {
 					MeniuFunctii.login(username, password);
 				}
@@ -104,6 +114,23 @@ public class FrameLogin extends JFrame {
 		JLabel lblParola = new JLabel("Parola :");
 		lblParola.setBounds(10, 210, 46, 14);
 		contentPane.add(lblParola);
-	}
 
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel
+				.setIcon(new ImageIcon(
+						Toolkit.getDefaultToolkit()
+								.getImage(
+										getClass()
+												.getResource(
+														"/com/lazarescu/licenta/imagini/bibliotecaLoginScreen.jpg"))));
+
+		lblNewLabel.setBounds(56, 8, 321, 157);
+		contentPane.add(lblNewLabel);
+
+		JLabel lblInfoGuest = new JLabel(
+				"<html>Daca nu sunteti înregistrat folosiţi<br>user : guest<br>parola : guest</html>");
+		lblInfoGuest.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInfoGuest.setBounds(202, 163, 111, 66);
+		contentPane.add(lblInfoGuest);
+	}
 }

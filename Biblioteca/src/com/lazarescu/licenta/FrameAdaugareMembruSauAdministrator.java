@@ -1,6 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
 public class FrameAdaugareMembruSauAdministrator extends JFrame {
@@ -55,7 +57,12 @@ public class FrameAdaugareMembruSauAdministrator extends JFrame {
 	 */
 
 	public FrameAdaugareMembruSauAdministrator(String str) {
-		setTitle("Adauga membru sau admin");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameAdaugareMembruSauAdministrator.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Introduce\u0163i datele");
 		FrameAdaugareMembruSauAdministrator.str = str;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -118,7 +125,8 @@ public class FrameAdaugareMembruSauAdministrator extends JFrame {
 		contentPane.add(textFieldCnp);
 		textFieldCnp.setColumns(10);
 		final String tip = str;
-		btnInregistrare = new JButton("Inregistrare");
+		btnInregistrare = new JButton("\u00CEnregistrare");
+		btnInregistrare.setBackground(UIManager.getColor("Button.background"));
 		btnInregistrare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setStuff();
@@ -139,7 +147,7 @@ public class FrameAdaugareMembruSauAdministrator extends JFrame {
 				}
 			}
 		});
-		btnInregistrare.setBounds(335, 227, 89, 23);
+		btnInregistrare.setBounds(317, 227, 107, 23);
 		contentPane.add(btnInregistrare);
 
 	}

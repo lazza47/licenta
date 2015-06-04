@@ -1,7 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,23 +38,30 @@ public class FrameOperatiuni extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameOperatiuni() {
-		setTitle("Operatiuni");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameOperatiuni.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Opera\u0163iuni");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JButton btnImprumutareCarte = new JButton("Imprumutare carte");
+		JButton btnImprumutareCarte = new JButton("\u00CEmprumutare carte");
+		btnImprumutareCarte.setBounds(5, 5, 424, 59);
 		btnImprumutareCarte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.imprumutareCarte();
 			}
 		});
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		contentPane.setLayout(null);
 		contentPane.add(btnImprumutareCarte);
 
 		JButton btnReturnareCarte = new JButton("Returnare carte");
+		btnReturnareCarte.setBounds(5, 196, 424, 59);
 		btnReturnareCarte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.returnareCarte2();

@@ -1,7 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,6 +38,11 @@ public class FrameStatistici extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameStatistici() {
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameStatistici.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
 		setTitle("Statistici");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -46,15 +51,17 @@ public class FrameStatistici extends JFrame {
 		setContentPane(contentPane);
 
 		JButton btnStatistici = new JButton("Statistici");
+		btnStatistici.setBounds(10, 11, 414, 58);
 		btnStatistici.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.statistici();
 			}
 		});
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		contentPane.setLayout(null);
 		contentPane.add(btnStatistici);
 
-		JButton btnOperatiuniTotale = new JButton("Operatiuni totale");
+		JButton btnOperatiuniTotale = new JButton("Opera\u0163iuni totale");
+		btnOperatiuniTotale.setBounds(10, 192, 414, 58);
 		btnOperatiuniTotale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.operatiuniTotale();

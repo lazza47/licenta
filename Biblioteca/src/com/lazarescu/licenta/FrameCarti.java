@@ -1,7 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,14 +42,20 @@ public class FrameCarti extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameCarti() {
-		setTitle("Carti");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameCarti.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("C\u0103r\u0163i");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		btnAdaugare = new JButton("Adaugare");
+		btnAdaugare = new JButton("Ad\u0103ugare");
+		btnAdaugare.setBounds(5, 5, 424, 60);
 		btnAdaugare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameAdaugaCarteSauExemplar frame = new FrameAdaugaCarteSauExemplar();
@@ -57,10 +63,11 @@ public class FrameCarti extends JFrame {
 			}
 
 		});
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		contentPane.setLayout(null);
 		contentPane.add(btnAdaugare);
 
-		btnCautare = new JButton("Cautare ");
+		btnCautare = new JButton("C\u0103utare ");
+		btnCautare.setBounds(5, 195, 424, 60);
 		btnCautare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameCautareCarte frameCautareCarte = new FrameCautareCarte();

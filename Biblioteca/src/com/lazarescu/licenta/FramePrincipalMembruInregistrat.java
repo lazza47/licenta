@@ -1,7 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,24 +38,32 @@ public class FramePrincipalMembruInregistrat extends JFrame {
 	 * Create the frame.
 	 */
 	public FramePrincipalMembruInregistrat() {
+		setTitle("Membru \u00EEnregistrat");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FramePrincipalMembruInregistrat.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JButton btnCautaCarte = new JButton("Cauta carte");
+		JButton btnCautaCarte = new JButton("Caut\u0103 carte");
+		btnCautaCarte.setBounds(5, 6, 424, 55);
 		btnCautaCarte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameCautareCarte frameCautareCarte = new FrameCautareCarte();
 				frameCautareCarte.setVisible(true);
 			}
 		});
+		contentPane.setLayout(null);
 		contentPane.add(btnCautaCarte);
 
 		JButton btnAfiseazaIstoricOperatiuni = new JButton(
-				"Afiseaza istoric operatiuni personale");
+				"Afi\u015Feaz\u0103 istoric opera\u0163iuni personale");
+		btnAfiseazaIstoricOperatiuni.setBounds(5, 99, 424, 55);
 		btnAfiseazaIstoricOperatiuni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.operatiuniPersonale();
@@ -64,7 +72,8 @@ public class FramePrincipalMembruInregistrat extends JFrame {
 		contentPane.add(btnAfiseazaIstoricOperatiuni);
 
 		JButton btnSituatiaCartilorImprumutate = new JButton(
-				"Situatia cartilor imprumutate");
+				"Situa\u0163ia c\u0103r\u0163ilor \u00EEmprumutate");
+		btnSituatiaCartilorImprumutate.setBounds(5, 195, 424, 55);
 		btnSituatiaCartilorImprumutate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.operatiuniPersonaleReturnate();

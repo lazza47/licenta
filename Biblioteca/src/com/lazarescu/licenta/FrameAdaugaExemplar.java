@@ -1,6 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,15 +43,20 @@ public class FrameAdaugaExemplar extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameAdaugaExemplar() {
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameAdaugaExemplar.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setTitle("Adauga exemplar");
+		setTitle("Adaug\u0103 exemplar");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnAdauga = new JButton("Adauga");
+		JButton btnAdauga = new JButton("Adaug\u0103");
 		btnAdauga.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String titlu = textFieldTitlu.getText();
@@ -71,7 +77,7 @@ public class FrameAdaugaExemplar extends JFrame {
 		lblNewLabel_1.setBounds(10, 117, 99, 14);
 		contentPane.add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Numar exemplare :");
+		JLabel lblNewLabel_2 = new JLabel("Num\u0103r exemplare :");
 		lblNewLabel_2.setBounds(10, 142, 99, 14);
 		contentPane.add(lblNewLabel_2);
 

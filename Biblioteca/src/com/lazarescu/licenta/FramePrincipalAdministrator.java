@@ -1,6 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,7 +30,7 @@ public class FramePrincipalAdministrator extends JFrame {
 				try {
 					frame = new FramePrincipalAdministrator();
 					frame.setVisible(true);
-					frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+					frame.setResizable(false);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,6 +42,11 @@ public class FramePrincipalAdministrator extends JFrame {
 	 * Create the frame.
 	 */
 	public FramePrincipalAdministrator() {
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FramePrincipalAdministrator.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
 		setTitle("Meniu Administrator");
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -64,7 +70,7 @@ public class FramePrincipalAdministrator extends JFrame {
 		label_1.setBounds(99, 6, 47, 31);
 		contentPane.add(label_1);
 
-		JButton btnMembrii = new JButton("Membrii");
+		JButton btnMembrii = new JButton("Membri");
 		btnMembrii.setBounds(28, 48, 396, 31);
 		btnMembrii.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -77,7 +83,7 @@ public class FramePrincipalAdministrator extends JFrame {
 		label_2.setBounds(146, 6, 47, 31);
 		contentPane.add(label_2);
 
-		JButton btnCarti = new JButton("Carti");
+		JButton btnCarti = new JButton("C\u0103r\u0163i");
 		btnCarti.setBounds(28, 6, 396, 31);
 		btnCarti.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -108,7 +114,7 @@ public class FramePrincipalAdministrator extends JFrame {
 		contentPane.add(label_6);
 		contentPane.add(btnMembrii);
 
-		JButton btnOperatiuni = new JButton("Operatiuni");
+		JButton btnOperatiuni = new JButton("Opera\u0163iuni");
 		btnOperatiuni.setBounds(28, 90, 396, 31);
 		btnOperatiuni.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -269,7 +275,7 @@ public class FramePrincipalAdministrator extends JFrame {
 		label_27.setBounds(99, 161, 47, 31);
 		contentPane.add(label_27);
 
-		JButton btnSchimbareParola = new JButton("Schimbare parola");
+		JButton btnSchimbareParola = new JButton("Schimbare parol\u0103");
 		btnSchimbareParola.setBounds(28, 172, 396, 31);
 		btnSchimbareParola.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

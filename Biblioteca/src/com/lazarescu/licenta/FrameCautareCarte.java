@@ -1,14 +1,14 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class FrameCautareCarte extends JFrame {
 
@@ -38,15 +38,20 @@ public class FrameCautareCarte extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameCautareCarte() {
-		setTitle("Cautare carte");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameCautareCarte.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("C\u0103utare carte");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		JButton btnDupaTitlu = new JButton("Dupa titlu");
+
+		JButton btnDupaTitlu = new JButton("Dup\u0103 titlu");
 		btnDupaTitlu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameCautareDupaTitlu frameCautareDupaTitlu = new FrameCautareDupaTitlu();
@@ -55,8 +60,8 @@ public class FrameCautareCarte extends JFrame {
 		});
 		btnDupaTitlu.setBounds(151, 46, 103, 23);
 		contentPane.add(btnDupaTitlu);
-		
-		JButton btnDupaAutor = new JButton("Dupa autor");
+
+		JButton btnDupaAutor = new JButton("Dup\u0103 autor");
 		btnDupaAutor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameCautaDupaAutor frameCautaDupaAutor = new FrameCautaDupaAutor();
@@ -65,12 +70,8 @@ public class FrameCautareCarte extends JFrame {
 		});
 		btnDupaAutor.setBounds(151, 114, 103, 23);
 		contentPane.add(btnDupaAutor);
-		
-		JButton btnCauta = new JButton("Cauta !");
-		btnCauta.setBounds(335, 227, 89, 23);
-		contentPane.add(btnCauta);
-		
-		JButton btnAfiseazaToate = new JButton("Afiseaza toate");
+
+		JButton btnAfiseazaToate = new JButton("Afi\u015Feaz\u0103 toate");
 		btnAfiseazaToate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.afiseazaToateCartile();

@@ -1,6 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,7 +43,12 @@ public class FrameAdaugaCarte extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameAdaugaCarte() {
-		setTitle("Adaugare carte");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameAdaugaCarte.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Ad\u0103ugare carte");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -68,7 +74,7 @@ public class FrameAdaugaCarte extends JFrame {
 		contentPane.add(textFieldAutor);
 		textFieldAutor.setColumns(10);
 
-		JButton btnAdauga = new JButton("Adauga !");
+		JButton btnAdauga = new JButton("Adaug\u0103");
 		btnAdauga.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String titlu = textFieldTitlu.getText();

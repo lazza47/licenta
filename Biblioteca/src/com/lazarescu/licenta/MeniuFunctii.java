@@ -32,7 +32,7 @@ public class MeniuFunctii extends Meniu {
 			InterfataUtilizator.showMessage(" ! 0 rezultate");
 		} else {
 			for (Carte carte : carti) {
-				cartiGasite += carte;
+				cartiGasite += carte + "\n";
 
 			}
 			InterfataUtilizator.showScrollableMessage(cartiGasite);
@@ -261,64 +261,66 @@ public class MeniuFunctii extends Meniu {
 	public static void imprumutareCarte() {
 		String username = "";
 		boolean userValid = false;
-		while (!userValid) {
-			username = String.valueOf(JOptionPane
-					.showInputDialog("  >username: "));
 
-			UtilizatorSimplu utilizator1 = biblioteca
-					.getMembruInregistratByNumeUtilizator(username);
-			if (utilizator1 == null) {
-				InterfataUtilizator.showMessage(" ! username GRESIT");
-			} else {
-				userValid = true;
-			}
-		}
-		if (!biblioteca.getMembruInregistratByNumeUtilizator(username)
-				.esteEligibilSaImprumute()) {
-			InterfataUtilizator
-					.showMessage(" ! userul nu este eligibil de imprumut");
+		username = String.valueOf(JOptionPane.showInputDialog("  >username: "));
+
+		UtilizatorSimplu utilizator1 = biblioteca
+				.getMembruInregistratByNumeUtilizator(username);
+		if (utilizator1 == null) {
+			InterfataUtilizator.showMessage(" ! username GRESIT");
 		} else {
+			userValid = true;
+		}
 
-			String titlu;
-			String listaCarti = "";
-			boolean inputValid;
-
-			titlu = String.valueOf(JOptionPane.showInputDialog("  >titlu: "));
-			inputValid = !Validator.stringulEsteGol(titlu);
-			if (!inputValid) {
-				InterfataUtilizator.showMessage(" ! camp GOL");
-			}
-
-			ArrayList<Carte> carti = utilizator.cautaCartiDupaTitlu(titlu);
-
-			if (carti.isEmpty()) {
-				InterfataUtilizator.showMessage(" ! 0 rezultate");
-				// utilizator.meniu();
+		if (userValid) {
+			if (!biblioteca.getMembruInregistratByNumeUtilizator(username)
+					.esteEligibilSaImprumute()) {
+				InterfataUtilizator
+						.showMessage(" ! userul nu este eligibil de imprumut");
 			} else {
 
-				for (int i = 0; i < carti.size(); i++) {
+				String titlu;
+				String listaCarti = "";
+				boolean inputValid;
 
-					listaCarti += ("   " + (i + 1) + "." + carti.get(i) + "\n");
+				titlu = String.valueOf(JOptionPane
+						.showInputDialog("  >titlu: "));
+				inputValid = !Validator.stringulEsteGol(titlu);
+				if (!inputValid) {
+					InterfataUtilizator.showMessage(" ! camp GOL");
 				}
 
-				String choice = String.valueOf(JOptionPane
-						.showInputDialog(listaCarti));
-				if ("0".equals(choice)) {
-					return;
-				}
+				ArrayList<Carte> carti = utilizator.cautaCartiDupaTitlu(titlu);
 
-				if (Validator.esteNrExemplareInt(choice)
-						&& Integer.valueOf(choice) <= carti.size()
-						&& Integer.valueOf(choice) > 0) {
-					Carte carte = carti.get(Integer.valueOf(choice) - 1);
-					Administrator admin = (Administrator) utilizator;
-
-					admin.imprumutaCarte(username, carte.getTitlu(),
-							carte.getAutor());
+				if (carti.isEmpty()) {
+					InterfataUtilizator.showMessage(" ! 0 rezultate");
+					// utilizator.meniu();
 				} else {
-					InterfataUtilizator.showMessage(" ! input GRESIT");
-				}
 
+					for (int i = 0; i < carti.size(); i++) {
+
+						listaCarti += ("   " + (i + 1) + "." + carti.get(i) + "\n");
+					}
+
+					String choice = String.valueOf(JOptionPane
+							.showInputDialog(listaCarti));
+					if ("0".equals(choice)) {
+						return;
+					}
+
+					if (Validator.esteNrExemplareInt(choice)
+							&& Integer.valueOf(choice) <= carti.size()
+							&& Integer.valueOf(choice) > 0) {
+						Carte carte = carti.get(Integer.valueOf(choice) - 1);
+						Administrator admin = (Administrator) utilizator;
+
+						admin.imprumutaCarte(username, carte.getTitlu(),
+								carte.getAutor());
+					} else {
+						InterfataUtilizator.showMessage(" ! input GRESIT");
+					}
+
+				}
 			}
 		}
 	}

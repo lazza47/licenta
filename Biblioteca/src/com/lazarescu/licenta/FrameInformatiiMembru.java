@@ -1,6 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -40,7 +41,12 @@ public class FrameInformatiiMembru extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameInformatiiMembru() {
-		setTitle("Informatii membru");
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameInformatiiMembru.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Informa\u0163ii membru");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,7 +55,7 @@ public class FrameInformatiiMembru extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblIntroducetiNumeleDe = new JLabel(
-				"Introduceti numele de utilizator :");
+				"Introduce\u0163i numele de utilizator :");
 		lblIntroducetiNumeleDe.setBounds(10, 98, 171, 14);
 		contentPane.add(lblIntroducetiNumeleDe);
 
@@ -58,7 +64,7 @@ public class FrameInformatiiMembru extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 
-		JButton btnAfisare = new JButton("Afisare");
+		JButton btnAfisare = new JButton("Afi\u015Fare");
 		btnAfisare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String username = textField.getText();

@@ -2,6 +2,7 @@ package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,14 +40,19 @@ public class FrameMembriAdministrator extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameMembriAdministrator() {
-		setTitle("Membrii");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameMembriAdministrator.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Membri");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JButton btnAdaugare = new JButton("Adaugare");
+		JButton btnAdaugare = new JButton("Ad\u0103ugare");
 		btnAdaugare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameAdaugareUtilizatorAdministrator frame = new FrameAdaugareUtilizatorAdministrator();
@@ -58,7 +64,7 @@ public class FrameMembriAdministrator extends JFrame {
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		contentPane.add(btnAdaugare);
 
-		JButton btnInformatii = new JButton("InformatiiMembru");
+		JButton btnInformatii = new JButton("Informa\u0163ii Membru");
 		btnInformatii.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrameInformatiiMembru frame = new FrameInformatiiMembru();
@@ -67,7 +73,7 @@ public class FrameMembriAdministrator extends JFrame {
 		});
 		contentPane.add(btnInformatii);
 
-		JButton btnListaMembrii = new JButton("Lista membrii");
+		JButton btnListaMembrii = new JButton("List\u0103 membri");
 		btnListaMembrii.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.listaMembrii();
@@ -76,7 +82,7 @@ public class FrameMembriAdministrator extends JFrame {
 		contentPane.add(btnListaMembrii);
 
 		JButton btnSolicitariInregistrare = new JButton(
-				"Solicitari inregistrare");
+				"Solicit\u0103ri inregistrare");
 		btnSolicitariInregistrare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.solicitariInregistrare();

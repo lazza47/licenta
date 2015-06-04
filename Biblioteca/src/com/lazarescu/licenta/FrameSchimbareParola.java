@@ -1,6 +1,7 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,7 +42,13 @@ public class FrameSchimbareParola extends JFrame {
 	 * Create the frame.
 	 */
 	public FrameSchimbareParola() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setIconImage(Toolkit
+				.getDefaultToolkit()
+				.getImage(
+						FrameSchimbareParola.class
+								.getResource("/com/lazarescu/licenta/imagini/iconFrame32px.png")));
+		setTitle("Schimbare parol\u0103");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -52,7 +59,7 @@ public class FrameSchimbareParola extends JFrame {
 		lblParolaVeche.setBounds(22, 104, 110, 14);
 		contentPane.add(lblParolaVeche);
 
-		JLabel lblParolaNoua = new JLabel("Parola noua :");
+		JLabel lblParolaNoua = new JLabel("Parola nou\u0103 :");
 		lblParolaNoua.setBounds(22, 156, 110, 14);
 		contentPane.add(lblParolaNoua);
 
@@ -66,7 +73,7 @@ public class FrameSchimbareParola extends JFrame {
 		contentPane.add(textFieldParolaNoua);
 		textFieldParolaNoua.setColumns(10);
 
-		JButton btnSchimbaParola = new JButton("Schimba parola");
+		JButton btnSchimbaParola = new JButton("Schimb\u0103 parola");
 		btnSchimbaParola.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String parolaVeche = textFieldParolaVeche.getText();

@@ -36,7 +36,9 @@ public class MembruInregistrat extends Membru implements Serializable {
 		exemplarImprumutat.imprumuta(imp);
 		cartiImprumutate.add(exemplarImprumutat);
 		Biblioteca.getInstance().addImprumut(this, imp);
-		InterfataUtilizator.showMessage(" Cartea a fost imprumutata cu succes");
+		InterfataUtilizator.showMessage("! Cartea cu id : "
+				+ exemplarImprumutat.getIdUnic()
+				+ " a fost imprumutata cu succes");
 	}
 
 	public Exemplar getExemplarImprumutatById(String idExemplar) {
