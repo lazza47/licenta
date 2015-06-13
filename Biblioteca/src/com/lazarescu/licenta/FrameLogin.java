@@ -19,9 +19,6 @@ import javax.swing.border.EmptyBorder;
 
 public class FrameLogin extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPasswordField passwordField;

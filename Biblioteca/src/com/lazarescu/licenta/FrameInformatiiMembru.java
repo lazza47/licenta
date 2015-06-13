@@ -20,6 +20,7 @@ public class FrameInformatiiMembru extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
+	public JButton button;
 
 	/**
 	 * Launch the application.
@@ -64,16 +65,21 @@ public class FrameInformatiiMembru extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 
-		JButton btnAfisare = new JButton("Afi\u015Fare");
-		btnAfisare.addActionListener(new ActionListener() {
+		button = new JButton("Afi\u015Fare");
+		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String username = textField.getText();
 				MeniuFunctii.informatiiMembru(username);
 
 			}
 		});
-		btnAfisare.setBounds(171, 189, 89, 23);
-		contentPane.add(btnAfisare);
+		button.setBounds(171, 189, 89, 23);
+		contentPane.add(button);
+	}
+
+	protected void setNumeButon(String nume) {
+		button = new JButton(nume);
+
 	}
 
 }

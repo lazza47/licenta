@@ -1,7 +1,6 @@
 package com.lazarescu.licenta;
 
 import java.awt.EventQueue;
-import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 public class FrameMembriAdministrator extends JFrame {
@@ -53,6 +53,7 @@ public class FrameMembriAdministrator extends JFrame {
 		setContentPane(contentPane);
 
 		JButton btnAdaugare = new JButton("Ad\u0103ugare");
+		btnAdaugare.setBounds(5, 7, 424, 41);
 		btnAdaugare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FrameAdaugareUtilizatorAdministrator frame = new FrameAdaugareUtilizatorAdministrator();
@@ -61,10 +62,12 @@ public class FrameMembriAdministrator extends JFrame {
 		});
 
 		JLabel label = new JLabel("");
-		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
+		label.setBounds(5, 212, 424, 41);
+		contentPane.setLayout(null);
 		contentPane.add(btnAdaugare);
 
 		JButton btnInformatii = new JButton("Informa\u0163ii Membru");
+		btnInformatii.setBounds(5, 48, 424, 41);
 		btnInformatii.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrameInformatiiMembru frame = new FrameInformatiiMembru();
@@ -74,6 +77,7 @@ public class FrameMembriAdministrator extends JFrame {
 		contentPane.add(btnInformatii);
 
 		JButton btnListaMembrii = new JButton("List\u0103 membri");
+		btnListaMembrii.setBounds(5, 89, 424, 41);
 		btnListaMembrii.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.listaMembrii();
@@ -83,13 +87,22 @@ public class FrameMembriAdministrator extends JFrame {
 
 		JButton btnSolicitariInregistrare = new JButton(
 				"Solicit\u0103ri inregistrare");
+		btnSolicitariInregistrare.setBounds(5, 130, 424, 41);
 		btnSolicitariInregistrare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				MeniuFunctii.solicitariInregistrare();
 			}
 		});
 		contentPane.add(btnSolicitariInregistrare);
-		contentPane.add(label);
+
+		JLabel labelNrUseriInregistrati = new JLabel("");
+		labelNrUseriInregistrati.setHorizontalAlignment(SwingConstants.CENTER);
+		labelNrUseriInregistrati.setBounds(5, 171, 424, 82);
+		contentPane.add(labelNrUseriInregistrati);
+		labelNrUseriInregistrati.setText("Momentan există "
+				+ Biblioteca.getInstance().getMembriiInregistrati().size()
+				+ " membrii înregistraţi...");
+
 	}
 
 }
