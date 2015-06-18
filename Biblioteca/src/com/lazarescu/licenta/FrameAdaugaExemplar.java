@@ -78,7 +78,7 @@ public class FrameAdaugaExemplar extends JFrame {
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Num\u0103r exemplare :");
-		lblNewLabel_2.setBounds(10, 142, 99, 14);
+		lblNewLabel_2.setBounds(10, 142, 139, 14);
 		contentPane.add(lblNewLabel_2);
 
 		textFieldTitlu = new JTextField();

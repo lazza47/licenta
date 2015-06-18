@@ -81,8 +81,7 @@ public class MeniuFunctii extends Meniu {
 		if (totulOK) {
 			return;
 		}
-		Administrator admin = (Administrator) utilizator;
-		admin.adaugaCarte(titlu, numeAutor);
+		((Administrator)utilizator).adaugaCarte(titlu, numeAutor);
 		InterfataUtilizator.showMessage(" ! Carte adaugata cu succes");
 
 	}

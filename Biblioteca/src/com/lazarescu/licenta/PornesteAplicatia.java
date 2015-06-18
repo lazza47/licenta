@@ -1,6 +1,6 @@
 package com.lazarescu.licenta;
 
-public class MeniuPrincipal extends Meniu {
+public class PornesteAplicatia extends Meniu {
 	public static void main(String[] args) {
 
 		meniu();
