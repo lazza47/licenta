@@ -2,7 +2,7 @@ package com.lazarescu.licenta;
 
 import java.io.Serializable;
 
-public class Validator implements Serializable {
+public abstract class Validator implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

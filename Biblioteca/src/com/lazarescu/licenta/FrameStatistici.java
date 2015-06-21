@@ -50,11 +50,12 @@ public class FrameStatistici extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
-		JButton btnStatistici = new JButton("Statistici");
+		JButton btnStatistici = new JButton(
+				"C\u0103r\u0163i nereturnate la timp");
 		btnStatistici.setBounds(10, 11, 414, 58);
 		btnStatistici.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MeniuFunctii.statistici();
+				MeniuFunctii.cartiNereturnateLaTimp();
 			}
 		});
 		contentPane.setLayout(null);

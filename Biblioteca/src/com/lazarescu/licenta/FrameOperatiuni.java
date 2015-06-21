@@ -64,7 +64,7 @@ public class FrameOperatiuni extends JFrame {
 		btnReturnareCarte.setBounds(5, 196, 424, 59);
 		btnReturnareCarte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MeniuFunctii.returnareCarte2();
+				MeniuFunctii.returnareCarte();
 			}
 		});
 		contentPane.add(btnReturnareCarte);

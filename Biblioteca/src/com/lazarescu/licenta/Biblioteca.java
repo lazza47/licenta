@@ -220,7 +220,8 @@ public class Biblioteca implements Serializable {
 		this.administratori.add(new Administrator(informatiiDocument.get(0)
 				.trim(), informatiiDocument.get(1).trim()));
 		informatiiDocument = getInformatiiDocument(doc, "expire");
-		this.expireDate = Long.parseLong(informatiiDocument.get(0).trim()) * 1000;
+		this.expireDate = Long.parseLong(informatiiDocument.get(0).trim())
+				* 1000 * 60 * 60 * 24;
 
 	}
 

@@ -55,8 +55,8 @@ public class FrameSchimbareParola extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblParolaVeche = new JLabel("Parola veche :");
-		lblParolaVeche.setBounds(22, 104, 110, 14);
+		JLabel lblParolaVeche = new JLabel("Parola actual\u0103 :");
+		lblParolaVeche.setBounds(22, 104, 132, 14);
 		contentPane.add(lblParolaVeche);
 
 		JLabel lblParolaNoua = new JLabel("Parola nou\u0103 :");

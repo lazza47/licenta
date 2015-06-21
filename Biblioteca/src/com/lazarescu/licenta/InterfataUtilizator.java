@@ -10,7 +10,7 @@ public class InterfataUtilizator {
 	}
 
 	public static void showScrollableMessage(String text) {
-		JTextArea textArea = new JTextArea(6, 25);
+		JTextArea textArea = new JTextArea(10, 40);
 		textArea.setText(text);
 		textArea.setEditable(false);
 

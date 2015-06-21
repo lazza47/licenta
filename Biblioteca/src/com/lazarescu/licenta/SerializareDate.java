@@ -10,8 +10,9 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
-public class SerializareDate implements Serializable {
+public abstract class SerializareDate implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	public static void save(String numeFisierSerializare) {
 

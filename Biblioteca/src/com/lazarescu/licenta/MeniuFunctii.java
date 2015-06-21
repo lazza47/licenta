@@ -81,7 +81,7 @@ public class MeniuFunctii extends Meniu {
 		if (totulOK) {
 			return;
 		}
-		((Administrator)utilizator).adaugaCarte(titlu, numeAutor);
+		((Administrator) utilizator).adaugaCarte(titlu, numeAutor);
 		InterfataUtilizator.showMessage(" ! Carte adaugata cu succes");
 
 	}
@@ -181,36 +181,38 @@ public class MeniuFunctii extends Meniu {
 				.getSolicitariInregistrare();
 		ArrayList<MembruNeinregistrat> solicitariAprobate = new ArrayList<>();
 		ArrayList<MembruNeinregistrat> solicitariRefuzate = new ArrayList<>();
-		Administrator admin = (Administrator) utilizator;
 
 		Iterator<MembruNeinregistrat> iterator = solicitari.iterator();
 		while (iterator.hasNext()) {
 			MembruNeinregistrat m = iterator.next();
 			int rezultat = JOptionPane.showConfirmDialog(null,
-					"Adauga membru \n" + m.toString() + "?",
-					"Adaugare solicitare", JOptionPane.YES_NO_CANCEL_OPTION);
+					"Adauga membru \n" + m.toString() + "?", "",
+					JOptionPane.YES_NO_CANCEL_OPTION);
 			if (rezultat == JOptionPane.YES_OPTION) {
 				solicitariAprobate.add(m);
-				InterfataUtilizator.showMessage("Solicitare aprobata !");
+				InterfataUtilizator.showMessage("Solicitare aprobată !");
 				iterator.remove();
 			}
 			if (rezultat == JOptionPane.NO_OPTION) {
 				solicitariRefuzate.add(m);
-				InterfataUtilizator.showMessage("Solicitare refuzata !");
+				InterfataUtilizator.showMessage("Solicitare refuzată !");
 				iterator.remove();
+			}
+			if (rezultat == JOptionPane.CANCEL_OPTION) {
+				InterfataUtilizator.showMessage("Aprobare  amânată !");
 			}
 
 		}
 		for (MembruNeinregistrat m : solicitariAprobate) {
-			admin.aprobaSolicitare(m);
+			((Administrator) utilizator).aprobaSolicitare(m);
 		}
 		for (MembruNeinregistrat m : solicitariRefuzate) {
-			admin.refuzaSolicitare(m);
+			((Administrator) utilizator).refuzaSolicitare(m);
 		}
 
 	}
 
-	public static void statistici() {
+	public static void cartiNereturnateLaTimp() {
 		Administrator admin = (Administrator) utilizator;
 		admin.afiseazaStatisticiCartiNereturnateLaTimp();
 		InterfataUtilizator
@@ -311,10 +313,8 @@ public class MeniuFunctii extends Meniu {
 							&& Integer.valueOf(choice) <= carti.size()
 							&& Integer.valueOf(choice) > 0) {
 						Carte carte = carti.get(Integer.valueOf(choice) - 1);
-						Administrator admin = (Administrator) utilizator;
-
-						admin.imprumutaCarte(username, carte.getTitlu(),
-								carte.getAutor());
+						((Administrator) utilizator).imprumutaCarte(username,
+								carte.getTitlu(), carte.getAutor());
 					} else {
 						InterfataUtilizator.showMessage(" ! input GRESIT");
 					}
@@ -324,7 +324,7 @@ public class MeniuFunctii extends Meniu {
 		}
 	}
 
-	public static void returnareCarte2() {
+	public static void returnareCarte() {
 		String username = "";
 		UtilizatorSimplu utilizator1 = null;
 		String strCartiImprumutate = "";
@@ -364,9 +364,9 @@ public class MeniuFunctii extends Meniu {
 
 					Exemplar exemplar = cartiImprumutate.get(Integer
 							.valueOf(choice) - 1);
-					Administrator admin = (Administrator) utilizator;
 
-					admin.returneazaCarte(username, exemplar.getIdUnic());
+					((Administrator) utilizator).returneazaCarte(username,
+							exemplar.getIdUnic());
 					InterfataUtilizator.showMessage("Cartea "
 							+ exemplar.getIdUnic() + " a fost returnata ");
 
@@ -383,9 +383,9 @@ public class MeniuFunctii extends Meniu {
 	public static void informatiiMembru(String username) {
 		boolean userValid = false;
 
-		UtilizatorSimplu utilizator1 = biblioteca
+		UtilizatorSimplu utilizatorSimplu = biblioteca
 				.getMembruInregistratByNumeUtilizator(username);
-		if (utilizator1 == null) {
+		if (utilizatorSimplu == null) {
 			System.out.println();
 		} else {
 			userValid = true;

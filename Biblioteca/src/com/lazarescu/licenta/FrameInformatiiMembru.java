@@ -57,11 +57,11 @@ public class FrameInformatiiMembru extends JFrame {
 
 		JLabel lblIntroducetiNumeleDe = new JLabel(
 				"Introduce\u0163i numele de utilizator :");
-		lblIntroducetiNumeleDe.setBounds(10, 98, 171, 14);
+		lblIntroducetiNumeleDe.setBounds(10, 98, 201, 14);
 		contentPane.add(lblIntroducetiNumeleDe);
 
 		textField = new JTextField();
-		textField.setBounds(184, 95, 216, 20);
+		textField.setBounds(221, 95, 179, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 
